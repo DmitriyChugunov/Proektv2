@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+h2 {
+    color: black;
+    font-family: 'Pixelify Sans', cursive;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Pixelify Sans', cursive;
+}
+
+.shapka {
+    display: flex;
+    justify-content: center;
+    background-image: url("./image/fotka.jpg");
+    font-family: 'Pixelify Sans', cursive;
+}
+
+.AlabugaChat {
+    font-size: 40px;
+    color: #FFFFFF;
+    font-family: 'Pixelify Sans', cursive;
+}
+
+.image__alabuga {
+    width: 60px;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.shapka__right {
+    text-align: right;
+    margin-left: 130px;
+    margin-top: 13px;
+    font-size: 23px;
+}
+
+.text__center {
+    margin-left: 300px;
+}
+
+
+.aright {
+    margin-left: 35px;
+    background-color: #333333;
+    border-radius: 15px;
+}
+
+.aleft {
+    background-color: #333333;
+    border-radius: 15px;
+}
+
+.container2 {
+    background-color: #EEEEEE;
+}
+
+.cont2__img {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    display: flex;
+    margin-left: 1200px;
+    margin-top: 220px;
+}
+
+.cont2__text {
+    text-align: center;
+    font-size: 30px;
+}
+
+.text-field__input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-radius: 15px;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+.cont2__button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: background-color .15s ease-in-out;
+}
+
+.container2 {
+    display: flex;
+    text-align: center;
+}
+
+.cont2__input {
+    margin-top: 250px;
+    margin-left: 30px;
+}
+
+.cont2__button {
+    margin-left: 30px;
+}
+
+
+.textarea {
+    margin-left: 400px;
+    resize: none;
+    overflow-y: scroll;
+}
+
+.cont3__button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+    padding: .105rem .95rem;
+    width: 137px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: background-color .15s ease-in-out;
+}
+
+.text {
+    display: flex;
+    text-align: center;
+}
+
+.room {
+    background-image: url("./image/fonts2.jpg");
+}
+
+.arrow_up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #000; /* Цвет стрелки, например, черный (#000) */
+    position: relative;
+}
+
+.arrow_up::before {
+    content: "";
+    width: 1px;
+    height: 20px; /* Высота палочки */
+    background: #000; /* Цвет палочки */
+    position: absolute;
+    top: -20px; /* Расположение палочки относительно стрелки */
+    left: 50%; /* Позиция палочки по горизонтали */
+    transform: translateX(-50%); /* Центрирование палочки */
+}
+
+.cont2__button2 {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: background-color .15s ease-in-out;
+}
+

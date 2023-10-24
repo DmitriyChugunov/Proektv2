@@ -1,0 +1,68 @@
+<!-- chat/templates/chat/room.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="/static/css/style2.css">
+</head>
+<body>
+<div class="room">
+    <textarea class="textarea" id="chat-log" cols="100" rows="46" disabled></textarea><br>
+    <div class="text">
+        <input class="textarea" id="chat-message-input" type="text" size="85"><br>
+        <input class="cont3__button" id="chat-message-submit" type="button" value="Отправить">
+        <button class="cont2__button2" id="glav" type="submit" onclick="window.location.href = '/chat/index.html'">На
+            главную страницу
+        </button>
+        {{ room_name|json_script:"room-name" }}
+        <span id="username" style="display:none;">{{ username }}</span>
+        <!-- Add a hidden span to store the username -->
+        <script>
+            const roomName = JSON.parse(document.getElementById('room-name').textContent);
+            const username = document.getElementById('username').textContent;  // Get the username from the hidden span
+
+            const chatSocket = new WebSocket(
+                'ws://'
+                + window.location.host
+                + '/ws/chat/'
+                + roomName
+                + '/'
+            );
+
+            chatSocket.onmessage = function (e) {
+                const data = JSON.parse(e.data);
+                const currentDate = new Date();
+                const hours = String(currentDate.getHours()).padStart(2, '0');
+                const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+                const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+                const currentTime = hours + ':' + minutes + ':' + seconds;
+                const messageWithTime = currentTime + ' - ' + data.username + ': ' + data.message + '\n';  // Display the username
+                document.querySelector('#chat-log').value += messageWithTime;
+            };
+
+            chatSocket.onclose = function (e) {
+                console.error('Chat socket closed unexpectedly');
+            };
+
+            document.querySelector('#chat-message-input').focus();
+            document.querySelector('#chat-message-input').onkeyup = function (e) {
+                if (e.key === 'Enter') {  // enter, return
+                    document.querySelector('#chat-message-submit').click();
+                }
+            };
+
+            document.querySelector('#chat-message-submit').onclick = function (e) {
+                const messageInputDom = document.querySelector('#chat-message-input');
+                const message = messageInputDom.value;
+                chatSocket.send(JSON.stringify({
+                    'message': message,
+                    'username': username  // Отправьте имя пользователя в сообщении
+                }));
+                messageInputDom.value = '';
+            };
+        </script>
+    </div>
+</div>
+</body>
+</html>

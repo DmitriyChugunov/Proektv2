@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Saturn is free PSD &amp; HTML template by @flamekaizar">
+    <meta name="author" content="Afnizar Nur Ghifari">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/static/css/style4.css"/>
+    <link rel="stylesheet" href="/static/css/kube.min.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/custom.min.css"/>
+    <link rel="shortcut icon" href="img/favicon.png"/>
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Navigation -->
+<div class="main-nav">
+    <div class="container">
+        <header class="group top-nav">
+            <nav class="navbar logo-w navbar-left">
+                <a class="logo" href="index.html">АлабугаЧат</a>
+            </nav>
+            <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
+                <span class="logo">АлабугаЧат</span>
+            </div>
+            <nav id="navbar-1" class="navbar item-nav navbar-right">
+                <ul>
+                    <button class="cont2__button" id="profil" onclick="window.location.href = '/profile';">Профиль
+                    </button>
+                </ul>
+            </nav>
+        </header>
+    </div>
+</div>
+
+<!-- Introduction -->
+<div class="intro">
+    <div class="container">
+        <div class="unit-90">
+            <p class="p-intro">Я общаюсь в АлабугаЧат, а ты?</p>
+        </div>
+        <div class="units-row">
+            <div class="unit-10">
+            </div>
+        </div>
+        <input type="text" id="userInput" placeholder="{{ user.username }}" disabled>
+        <input class="cont2__input" type="text" name="login" id="room-name-input"
+               placeholder="Номер комнаты" maxlength="20" required>
+        <button class="cont2__button" id="room-name-submit" onclick="window.location.href = 'room.html';"
+                type="submit">Перейти в чат
+        </button>
+    </div>
+
+</div>
+<script>
+    document.querySelector('#room-name-input').focus();
+document.querySelector('#room-name-input').onkeyup = function (e) {
+if (e.key === 'Enter') {  // enter, return
+document.querySelector('#room-name-submit').click();
+}
+};
+
+document.querySelector('#room-name-submit').onclick = function (e) {
+var roomName = document.querySelector('#room-name-input').value;
+window.location.href = '/chat/' + roomName + '/';
+};
+</script>
+</body>
+</html>
